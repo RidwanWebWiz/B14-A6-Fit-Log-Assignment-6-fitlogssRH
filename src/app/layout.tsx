@@ -1,10 +1,13 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Geist } from "next/font/google";
 import "./globals.css";
+import Navbar from "./component/Navbar";
+import Footer from "./component/Footer";
+import { WorkoutProvider } from "@/context/WorkoutContext";
+import { cn } from "@/lib/utils";
+import { Toaster } from "@/components/ui/sonner";
 
-const inter = Inter({
-  subsets: ["latin"],
-});
+const geist = Geist({ subsets: ["latin"], variable: "--font-sans" });
 
 export const metadata: Metadata = {
   title: "FitLog",
@@ -17,9 +20,16 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className={inter.className}>
-        {children}
+    <html lang="en" className={cn("font-sans", geist.variable)}>
+      <body className="bg-[#0b0c0e] text-white min-h-screen flex flex-col font-sans antialiased">
+        <WorkoutProvider>
+          <Navbar />
+          <main className="grow max-w-6xl mx-auto w-full p-8">
+            {children}
+          </main>
+          <Footer />
+          <Toaster theme="dark" position="bottom-right" />
+        </WorkoutProvider>
       </body>
     </html>
   );
