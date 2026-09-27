@@ -36,7 +36,7 @@ export default function WorkoutDetail({ params }: { params: Promise<{ id: string
 
   return (
     <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 py-2 text-white max-w-5xl mx-auto items-start">
-      {/* Left Column: Compact Workout Image */}
+      
       <div className="relative w-full h-120 rounded-2xl overflow-hidden bg-[#12141a] border border-gray-800/50">
         <Image
           src={workout.image}
@@ -48,10 +48,10 @@ export default function WorkoutDetail({ params }: { params: Promise<{ id: string
         />
       </div>
 
-      {/* Right Column: Workout Details */}
+      
       <div className="flex flex-col justify-between">
         <div>
-          {/* Header Title & Description */}
+          
           <h1 className="text-2xl font-black uppercase tracking-tight mb-2">
             {workout.name}
           </h1>
@@ -59,7 +59,7 @@ export default function WorkoutDetail({ params }: { params: Promise<{ id: string
             {workout.description}
           </p>
 
-          {/* Muscle Group Badges */}
+          
           <div className="flex flex-wrap gap-1.5 mb-4">
             {workout.muscleGroups.map((group, idx) => (
               <span
@@ -71,7 +71,7 @@ export default function WorkoutDetail({ params }: { params: Promise<{ id: string
             ))}
           </div>
 
-          {/* Specs Table Card */}
+          
           <div className="bg-[#12141a] border border-gray-800/80 rounded-xl p-3.5 mb-4 space-y-2 text-[11px]">
             <div className="flex justify-between items-center border-b border-gray-800/60 pb-1.5">
               <span className="text-gray-500 font-bold uppercase tracking-wider text-[9px]">EQUIPMENT</span>
@@ -109,7 +109,7 @@ export default function WorkoutDetail({ params }: { params: Promise<{ id: string
             </div>
           </div>
 
-          {/* Instructions List */}
+          
           <div className="mb-4">
             <h3 className="text-[10px] font-extrabold uppercase tracking-widest text-white mb-2">
               INSTRUCTIONS
@@ -124,7 +124,7 @@ export default function WorkoutDetail({ params }: { params: Promise<{ id: string
           </div>
         </div>
 
-        {/* Action Buttons with Custom Image Icons */}
+        
         <div className="flex items-center gap-3 pt-2">
           <Button
             onClick={handlePlanToggle}

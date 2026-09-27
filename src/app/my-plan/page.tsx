@@ -27,7 +27,7 @@ function PlanContent() {
 
   const { plan, saved, togglePlan, toggleSaved } = useWorkout();
 
-  // Header stats calculated from Today's Plan
+  
   const planItems = useMemo(() => {
     return workouts.filter((w) => plan.includes(w.id));
   }, [plan]);
@@ -36,13 +36,13 @@ function PlanContent() {
   const totalMinutes = planItems.reduce((acc, curr) => acc + curr.duration, 0);
   const totalCalories = planItems.reduce((acc, curr) => acc + curr.caloriesBurned, 0);
 
-  // Active tab list items
+  
   const rawItems = useMemo(() => {
     const ids = activeTab === 'plan' ? plan : saved;
     return workouts.filter((w) => ids.includes(w.id));
   }, [activeTab, plan, saved]);
 
-  // Sort active list items
+  
   const items = useMemo(() => {
     return [...rawItems].sort((a, b) => {
       if (sortBy === 'duration') return b.duration - a.duration;
@@ -53,7 +53,7 @@ function PlanContent() {
     });
   }, [rawItems, sortBy]);
 
-  // Action Handlers with Cap & Toast logic
+  
   const handleAddToPlanFromSaved = (id: number) => {
     if (plan.length >= 5) {
       toast.error("Today's plan is full! Maximum 5 lifts allowed.");
@@ -80,13 +80,13 @@ function PlanContent() {
 
   return (
     <div className="max-w-6xl mx-auto py-4 text-white">
-      {/* Page Title & Subtitle */}
+      
       <h1 className="text-3xl font-black uppercase tracking-tight mb-1">MY PLAN</h1>
       <p className="text-gray-400 text-xs mb-6">
         Cap of five lifts for today. Finish them, then load more.
       </p>
 
-      {/* Summary Stats Card */}
+      
       <div className="bg-[#12141a] border border-gray-800/80 rounded-2xl p-6 mb-8 grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-0 sm:divide-x divide-gray-800/60">
         <div className="px-2 sm:px-4 first:pl-0">
           <p className="text-gray-500 text-xs font-semibold uppercase tracking-wider mb-2">Exercises</p>
@@ -102,9 +102,9 @@ function PlanContent() {
         </div>
       </div>
 
-      {/* Tab Switcher & Sort Controls */}
+      
       <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-6">
-        {/* Left Tabs */}
+        
         <div className="flex items-center gap-1 bg-[#12141a] p-1 rounded-full border border-gray-800/60 text-xs font-semibold">
           <button
             onClick={() => setActiveTab('plan')}
@@ -128,7 +128,7 @@ function PlanContent() {
           </button>
         </div>
 
-        {/* Right Sort Dropdown */}
+        
         <div className="flex items-center gap-2 text-xs text-gray-400 font-medium">
           <span>Sort By</span>
           <Select value={sortBy} onValueChange={(value) => setSortBy(value as SortOption)}>
@@ -145,7 +145,7 @@ function PlanContent() {
         </div>
       </div>
 
-      {/* Workout Items List or Empty State */}
+      
       {items.length === 0 ? (
         <div className="border border-dashed border-gray-800/90 rounded-2xl py-20 px-6 text-center flex flex-col items-center justify-center bg-[#0d0e12]">
           <h2 className="text-lg font-black uppercase tracking-wider text-white mb-2">
@@ -170,7 +170,7 @@ function PlanContent() {
               key={workout.id}
               className="bg-[#12141a] border border-gray-800/80 rounded-2xl p-4 flex flex-col md:flex-row items-start md:items-center justify-between gap-4 hover:border-gray-700/80 transition-colors"
             >
-              {/* Left Info Section */}
+              
               <div className="flex items-center gap-4 w-full md:w-auto">
                 <div className="relative w-28 h-20 rounded-xl overflow-hidden bg-[#0b0c0e] shrink-0 border border-gray-800/50">
                   <Image
@@ -205,7 +205,7 @@ function PlanContent() {
                 </div>
               </div>
 
-              {/* Right Action Buttons */}
+              
               <div className="flex items-center justify-end gap-3 w-full md:w-auto pt-2 md:pt-0 border-t md:border-t-0 border-gray-800/60">
                 <Link
                   href={`/workout/${workout.id}`}

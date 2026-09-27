@@ -53,7 +53,7 @@ export default function WorkoutCard({ workout }: WorkoutCardProps) {
   return (
     <div className="bg-[#12141a] rounded-2xl overflow-hidden border border-gray-800/80 hover:border-gray-700/80 transition-colors flex flex-col justify-between group">
       <Link href={`/workout/${workout.id || 1}`} className="block">
-        {/* Top Image */}
+        
         <div className="relative w-full h-48 bg-[#0b0c0e]">
           <Image
             src={workout.image || ''}
@@ -64,9 +64,9 @@ export default function WorkoutCard({ workout }: WorkoutCardProps) {
           />
         </div>
 
-        {/* Card Body */}
+        
         <div className="p-4 pb-2">
-          {/* Muscle Group Badges */}
+          
           <div className="flex flex-wrap gap-1.5 mb-3">
             {(workout.muscleGroups || []).map((group: string, idx: number) => (
               <span
@@ -84,7 +84,7 @@ export default function WorkoutCard({ workout }: WorkoutCardProps) {
 
           <p className="text-gray-500 text-xs mb-4">{workout.equipment}</p>
 
-          {/* Specs Bar */}
+          
           <div className="flex items-center gap-4 text-xs text-gray-400 font-medium mb-2">
             <span className="flex items-center gap-1.5">
               <Image src="/assets/icons8-clock-24.png" alt="Duration" width={14} height={14} />
@@ -102,9 +102,9 @@ export default function WorkoutCard({ workout }: WorkoutCardProps) {
         </div>
       </Link>
 
-      {/* Bottom Action Buttons */}
+      
       <div className="p-4 pt-2 flex items-center gap-2">
-        {/* Add to Plan Button */}
+        
         <button
           type="button"
           onClick={handlePlanClick}
@@ -133,7 +133,7 @@ export default function WorkoutCard({ workout }: WorkoutCardProps) {
           </span>
         </button>
 
-        {/* Save for Later Button matching screenshots */}
+        
         <button
           type="button"
           onClick={handleSaveClick}

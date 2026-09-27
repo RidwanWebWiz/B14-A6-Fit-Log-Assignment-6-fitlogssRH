@@ -2,7 +2,7 @@
 
 import { useState, useMemo } from 'react';
 import Image from 'next/image';
-import WorkoutCard from './component/WorkoutCard'; // adjust path if needed (e.g., '@/components/WorkoutCard')
+import WorkoutCard from './component/WorkoutCard'; 
 import { workouts } from '@/lib/data';
 
 const CATEGORIES = ["ALL", "CHEST", "BACK", "LEGS", "SHOULDERS", "ARMS", "CORE"];
@@ -30,9 +30,9 @@ export default function Home() {
 
   return (
     <div>
-      {/* Hero Section */}
+      
       <div className="bg-[#181a20] border border-gray-800/80 rounded-2xl p-8 md:p-12 mb-12 flex flex-col md:flex-row items-center justify-between gap-8">
-        {/* Left Column: Text & CTA */}
+        
         <div className="flex-1 max-w-xl">
           <span className="text-[#ccff00] text-xs font-bold uppercase tracking-widest mb-4 block">
             WORKOUT LIBRARY
@@ -51,7 +51,7 @@ export default function Home() {
           </a>
         </div>
 
-        {/* Right Column: Banner Graphic */}
+        
         <div className="w-full md:w-auto flex justify-center items-center">
           <div className="relative w-64 h-64 md:w-80 md:h-80">
             <Image
@@ -65,7 +65,7 @@ export default function Home() {
         </div>
       </div>
 
-      {/* Library Header & Controls */}
+      
       <div id="library" className="mb-8">
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-6">
           <div>
@@ -73,7 +73,7 @@ export default function Home() {
             <p className="text-gray-500 text-sm">Twelve lifts covering every major muscle group.</p>
           </div>
 
-          {/* Search Bar */}
+          
           <div className="relative w-full md:w-72">
             <input
               type="text"
@@ -93,7 +93,7 @@ export default function Home() {
           </div>
         </div>
 
-        {/* Muscle Group Filter Pills */}
+        
         <div className="flex items-center gap-2 overflow-x-auto pb-2 scrollbar-none">
           {CATEGORIES.map((cat) => (
             <button
@@ -111,7 +111,7 @@ export default function Home() {
         </div>
       </div>
 
-      {/* Workout Grid / Empty Search Results */}
+     
       {filteredWorkouts.length === 0 ? (
         <div className="border border-dashed border-gray-800 rounded-2xl p-12 text-center bg-[#0d0e12]">
           <p className="text-sm text-gray-400 mb-3">

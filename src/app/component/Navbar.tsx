@@ -11,7 +11,7 @@ export default function Navbar() {
   return (
     <header className="sticky top-0 z-50 w-full bg-[#0b0c0e]/90 backdrop-blur-md border-b border-gray-800/40 transition-all">
       <nav className="max-w-7xl mx-auto flex justify-between items-center py-4 px-6 text-white">
-        {/* Brand Logo & Name -> Homepage */}
+        
         <Link href="/" prefetch={false} className="flex items-center gap-2.5">
           <Image 
             src="/assets/logo.png" 
@@ -23,7 +23,7 @@ export default function Navbar() {
           <span className="font-black text-lg tracking-wider uppercase">FITLOG</span>
         </Link>
 
-        {/* Center Links (Pill Navigation Style) */}
+        
         <div className="flex items-center gap-1 bg-[#121418] p-1 rounded-full text-xs font-semibold border border-gray-800/60">
           <Link 
             href="/" 
@@ -49,7 +49,7 @@ export default function Navbar() {
           </Link>
         </div>
 
-        {/* Right Counters -> Navigates to Plan Page */}
+        
         <div className="flex items-center gap-5 text-xs text-gray-400 font-medium">
           <Link 
             href="/my-plan" 

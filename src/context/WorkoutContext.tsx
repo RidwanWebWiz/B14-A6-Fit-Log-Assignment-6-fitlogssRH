@@ -20,7 +20,7 @@ export function WorkoutProvider({ children }: { children: React.ReactNode }) {
   const [saved, setSaved] = useState<number[]>([]);
   const [isHydrated, setIsHydrated] = useState(false);
 
-  // Load stored data asynchronously to prevent synchronous cascading re-renders
+  
   useEffect(() => {
     queueMicrotask(() => {
       try {
@@ -37,13 +37,13 @@ export function WorkoutProvider({ children }: { children: React.ReactNode }) {
     });
   }, []);
 
-  // Persist plan updates to localStorage
+  
   useEffect(() => {
     if (!isHydrated) return;
     localStorage.setItem(LOCAL_STORAGE_PLAN_KEY, JSON.stringify(plan));
   }, [plan, isHydrated]);
 
-  // Persist saved updates to localStorage
+  
   useEffect(() => {
     if (!isHydrated) return;
     localStorage.setItem(LOCAL_STORAGE_SAVED_KEY, JSON.stringify(saved));
